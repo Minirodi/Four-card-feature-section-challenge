@@ -1,0 +1,121 @@
+
+:root{
+    --fw-200:200;
+    --fw-400:400;
+    --fw-600:600;
+
+    --clr-primary-1:hsl(0, 78%, 62%);
+    --clr-primary-2:hsl(180, 62%, 55%);
+    --clr-primary-3:hsl(34, 97%, 64%);
+    --clr-primary-4:hsl(212, 86%, 64%);
+
+    --clr-dark:hsl(234, 12%, 34%);
+    --clr-grayish:hsl(229, 6%, 66%);
+    --clr-light:hsl(0, 0%, 98%);
+}
+*,*::before,*::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+h1,h3{
+    font-weight:var(--fw-600);
+    color:var(--clr-dark)
+}
+p{
+    margin-top:1em;
+    font-size:0.9375em;
+    color:var(--clr-grayish);
+}
+img{
+    margin-top:1.5em;
+    justify-self: right;
+}
+
+body{
+    background-color:var(--clr-light);
+}
+
+main{
+    width:85%;
+    margin:6em auto 2em;
+    font-family:'Poppins';
+}
+.intro{
+    margin:5em auto;
+    text-align:center;
+    width:100%;
+    
+}
+.intro__title{
+    font-weight:var(--fw-200);
+    font-size:1.6rem;
+}
+span{
+    font-weight:var(--fw-600);
+}
+.cards{
+    display:flex;
+    flex-direction:column;
+    gap:2em;
+}
+.card{
+    position:relative;
+    display:grid;
+    background-color:white;
+    border-radius:10px;
+    box-shadow:0 10px 20px 3px var(--clr-grayish);
+    padding:1.3em;
+    overflow:hidden;
+}
+.card::before{
+    position:absolute;
+    content:'';
+    height:4px;
+    width:100%;
+    background-color:initial;
+}
+.supervisor::before{
+    background-color:var(--clr-primary-2);
+}
+.team_builder::before{
+    background-color:var(--clr-primary-1);
+}
+.karma::before{
+    background-color:var(--clr-primary-3);
+}
+.calculator::before{
+    background-color:var(--clr-primary-4);
+}
+
+.card__content{
+    font-size:0.8rem;
+}
+
+@media(min-width:700px){
+    .cards{
+        display:grid;
+        grid-template-areas: 'supervisor team_builder calculator''supervisor karma calculator';
+        grid-template-columns: repeat(3,1fr);
+        align-items:center;
+        gap:2em;
+    }
+    .intro{
+        max-width:40ch;
+        margin-left:50%;
+        transform:translateX(-50%);
+    }
+    .supervisor{
+        grid-area: supervisor;
+    }
+    .team_builder{
+        grid-area:team_builder;
+    }
+    .karma{
+        grid-area:karma;
+    }
+    .calculator{
+        grid-area:calculator;
+    }
+}
+
